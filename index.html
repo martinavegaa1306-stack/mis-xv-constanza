@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Años - Constanza</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HERO / PORTADA -->
+    <header class="hero">
+        <div class="hero-content">
+           
+        </div>
+        <!-- REPRODUCTOR DE MÚSICA -->
+        <div class="audio-container">
+            <audio id="background-music" loop>
+                <!-- Reemplaza 'tu-cancion.mp3' por el enlace o nombre de tu archivo de música -->
+                <source src="./WhatsApp-Video-2026-11-06-at-19.02.28.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <button id="music-btn" onclick="togglePlay()" style="font-family: 'Times New Roman', Times, serif;">🎵 Reproducir Música</button>
+        </div>
+    </header>
+    <section class="mis15">
+        <h3> Mis Quince Años</h3>
+        <h1><strong>Constanza </strong></h1>
+    
+        
+    </section>
+
+    <!-- CUENTA REGRESIVA -->
+     <section class="countdown-section">
+    <h3>Faltan...</h3>
+    <div id="countdown" class="countdown">
+        <div><span id="days">13</span><p>DIAS</p></div>
+        <div><span id="hours">03</span><p>HORAS</p></div>
+        <div><span id="minutes">03</span><p>MINUTOS</p></div>
+        
+    </div>
+</section>
+    <!-- GALERÍA DE FOTOS -->
+    <section class="gallery">
+        <h3>Momentos</h3>
+        <div class="gallery-grid">
+            <img src="./WhatsApp Image 2026-11-06 at 16.27.22 (1).jpeg" alt="Foto 1">
+            <img src="./WhatsApp Image 2026-11-06 at 16.27.22.jpeg" alt="Foto 2">
+            <img src="./WhatsApp Image 2026-11-06 at 16.27.23.jpeg" alt="Foto 3">
+        </div>
+        <a href="https://drive.google.com/drive/folders/13K7sEABlM4g2UOrJzWw7ojHck-xUGVSQ?usp=sharing" target="_blank" class="btn" style="font-family: 'Times New Roman', Times, serif;">subi las fotos que saques de la noche...</a>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section class="location">
+        <h3>¿Dónde y Cuándo?</h3>
+        <div class="card-info">
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Salón: "Caza y Pesca" </h4>
+            <p style="font-family: 'Times New Roman', Times, serif;">19 de Diciembre 2026</p>
+            <p style="font-family: 'Times New Roman', Times, serif;">Recepción: 20:30</p>
+            <a href="https://maps.apple/p/W-.GW~~3B6VG1P" target="_blank" class="btn"style="font-family: 'Times New Roman', Times, serif;" >Ver en Google Maps</a>
+        </div>
+    </section>
+
+    <!-- DRESS CODE & REGALOS -->
+    <section class="details-section">
+        <div class="detail-box">
+            <h3>Dress Code</h3>
+            <p class="highlight" style="font-family: 'Times New Roman', Times, serif;" font-size: 42px>Elegante sport</p>
+            <p style="font-family: 'Times New Roman', Times, serif;">Sugerencia evitar color:</p>
+            <p style="font-family: 'Times New Roman', Times, serif;">Plateado</p>
+            <p style="font-family: 'Times New Roman', Times, serif;" >Rojo</p>
+            <p style="font-family: 'Times New Roman', Times, serif;">Violeta</p>
+        </div>
+        <div class="detail-box">
+            <h3>Regalos</h3>
+            <p style="font-family: 'Times New Roman', Times, serif;"> Mis 15 son un <strong>sueño cumplido,</strong> pero todavia tengo muchos por delante.
+                si queres ser parte de los proximos sueños, podes ayudarme a hacerlos realidad con un pequeño aporte. </p>
+            <p class="highlight" style="font-family: 'Times New Roman', Times, serif;">Alias: constanza557.mp</p>
+        </div>
+    </section>
+
+    <!-- CONFIRMAR ASISTENCIA -->
+    <section class="rsvp">
+        <h3 style="font-family: 'Times New Roman', Times, serif;">Asistencia</h3>
+        <p style="font-family: 'Times New Roman', Times, serif;">Confirmá tu asistencia antes del 1 de Diciembre</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVvTreAgVpei_bnEweQnpnvUXmhWrnA_B8_XPmqwdZYY9eGQ/viewform?usp=publish-editor" target="_blank" class="btn btn-whatsapp" style="font-family: 'Times New Roman', Times, serif;">Confirmar asistencia</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p style="font-family: 'Times New Roman', Times, serif;" >¡Te espero para celebrar juntos este momento inolvidable!</p>
+    </footer>
+
+<script>
+const eventDate = new Date("December 19, 2026 20:30:00").getTime();
+
+const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const timeLeft = eventDate - now;
+
+    if (timeLeft < 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerHTML = "¡Llegó el gran día!";
+        return;
+    }
+
+    // Cálculo de días, horas, minutos y segundos totales
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // Muestra los datos en pantalla asegurando que tengan dos dígitos
+    document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+    document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+}, 1000);
+</script>
+
+<script>
+function togglePlay() {
+    const music = document.getElementById("background-music");
+    const btn = document.getElementById("music-btn");
+
+    if (music.paused) {
+        music.play();
+        btn.innerText = "⏸️ Pausar Música";
+    } else {
+        music.pause();
+        btn.innerText = "🎵 Reproducir Música";
+    }
+}
+</script>
+
+</body>
+</html>
